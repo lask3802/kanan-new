@@ -1,5 +1,5 @@
 #include <imgui.h>
-
+#include "Log.hpp"
 #include "Mabinogi.hpp"
 #include "KCharacter.hpp"
 #include "KItem.hpp"
@@ -89,7 +89,7 @@ namespace kanan {
             if (character == nullptr || !character->getID()) {
                 continue;
             }
-
+            
             m_characters.emplace_front(character);
         }
 
@@ -122,7 +122,6 @@ namespace kanan {
             if (item == nullptr || !item->getID()) {
                 continue;
             }
-
             m_items.emplace_front(item);
         }
 

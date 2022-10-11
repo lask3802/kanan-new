@@ -19,6 +19,7 @@ namespace kanan {
         }
 
         return narrow((wchar_t*)&name->buffer[0]);
+      
     }
 
     optional<uint16_t> KItem::getMaxStackCount() const {

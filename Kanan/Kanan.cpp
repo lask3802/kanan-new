@@ -1,4 +1,5 @@
 #include <imgui.h>
+
 #include <imgui_freetype.h>
 #include <imgui_impl_dx9.h>
 #include <imgui_impl_win32.h>
@@ -148,7 +149,10 @@ namespace kanan {
         auto& io = ImGui::GetIO();
 
         io.IniFilename = m_uiConfigPath.c_str();
-        io.Fonts->AddFontFromMemoryCompressedTTF(g_font_compressed_data, g_font_compressed_size, 16.0f);
+       // io.Fonts->AddFontDefault();
+        //io.Fonts->AddFontFromMemoryCompressedTTF(g_font_compressed_data, g_font_compressed_size, 16.0f);
+        io.Fonts->AddFontFromFileTTF("E:\\repo\\kanan-new\\out\\bin\\notosans.otf", 18.0f, nullptr, io.Fonts->GetGlyphRangesChineseFull());
+        
         ImGuiFreeType::BuildFontAtlas(io.Fonts, 0);
 
         if (!ImGui_ImplWin32_Init(m_wnd)) {
@@ -261,6 +265,8 @@ namespace kanan {
                 if (m_isAboutOpen) {
                     drawAbout();
                 }
+                ImGui::ShowDemoWindow();
+                
             }
             else {
                 // UI is closed so always pass input to the game.
@@ -386,7 +392,7 @@ namespace kanan {
     void Kanan::drawUI() {
         ImGui::SetNextWindowSize(ImVec2{ 450.0f, 200.0f }, ImGuiCond_FirstUseEver);
 
-        if (!ImGui::Begin("Kanan's New Mabinogi Mod", &m_isUIOpen, ImGuiWindowFlags_MenuBar)) {
+        if (!ImGui::Begin("Kanan's New Mabinogi Mod ¤¤¤å¦r´ú¸Õ", &m_isUIOpen, ImGuiWindowFlags_MenuBar)) {
             ImGui::End();
             return;
         }
