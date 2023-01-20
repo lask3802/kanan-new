@@ -27,7 +27,8 @@
 #include "Currtarget.hpp"
 #include "CookingMod.hpp"
 #include "CharacterWindowTitle.hpp"
-
+#include "CpuReduce.hpp"
+#include "WindowsMessageDelegate.hpp"
 #include "Log.hpp"
 
 #include "Mods.hpp"
@@ -132,11 +133,12 @@ namespace kanan {
         addMod(make_unique<ChangeChannelHotkey>());
         addMod(make_unique<Currtarget>());
         addMod(make_unique<CharacterWindowTitle>());
-
+        addMod(make_unique<CpuReduce>());
+        addMod(windows_message_delegate::getInstance());
         log("[Mods] Finished loading mods.");
     }
 
-    void Mods::addMod(std::unique_ptr<Mod>&& mod) {
+    void Mods::addMod(std::shared_ptr<Mod>&& mod) {
         scoped_lock<mutex> _{ m_modsMutex };
 
         m_mods.emplace_back(move(mod));

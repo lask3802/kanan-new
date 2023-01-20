@@ -28,11 +28,11 @@ namespace kanan {
 
     private:
         std::string m_filepath;
-        std::vector<std::unique_ptr<Mod>> m_mods;
+        std::vector<std::shared_ptr<Mod>> m_mods;
         std::map<std::string, std::vector<std::unique_ptr<PatchMod>>> m_patchMods;
         std::mutex m_modsMutex;
 
-        void addMod(std::unique_ptr<Mod>&& mod);
+        void addMod(std::shared_ptr<Mod>&& mod);
         void addPatchMod(const std::string& category, std::unique_ptr<PatchMod>&& mod);
     };
 }

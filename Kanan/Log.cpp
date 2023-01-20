@@ -27,6 +27,7 @@ namespace kanan {
             if (!m_file.is_open()) {
                 error("Failed to open log file: %s!", filepath.c_str());
             }
+            m_startTimeSecond = chrono::steady_clock::now();
         }
 
         void clear() { 
@@ -48,7 +49,8 @@ namespace kanan {
             m_scrollToBottom = true;
 
             if (m_file.is_open()) {
-                m_file << msg << endl;
+                auto elapsed = std::chrono::duration<float, chrono::seconds::period>(chrono::steady_clock::now() - m_startTimeSecond);
+                m_file << std::format("[{}] ", elapsed.count()) << msg << endl;
             }
         }
 
@@ -111,6 +113,7 @@ namespace kanan {
         ImVector<int> m_lineOffsets; // Index to lines offset
         bool m_scrollToBottom;
         ofstream m_file;
+        std::chrono::time_point<chrono::steady_clock> m_startTimeSecond;
     };
 
     unique_ptr<Log> g_log{};
