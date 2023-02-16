@@ -28,44 +28,48 @@ struct Matrix4x4 {
     float m[16]
 }
 
+//x64 fixed
 class CString {
-    int32_t referenceCount @ 0x4
-    uint32_t length @ 0xC
-    uint32_t capacity @ 0x10
-    char16_t buffer[70] @ 0x1C [[utf16*]]
+	uint64_t* vftable
+    int32_t referenceCount
+	uint32_t allocThreadId
+    uint32_t length
+    uint32_t capacity
+    char16_t buffer[70] @ 0x20 [[utf16*]]
 }
 
+//x64 fixed
 class CCharacter {
     class CParameter {
-        class CMemberString 0x10 {
-            CString* value @ 0x4
+        class CMemberString 0x20 {
+            CString* value @ 0x8
         }
 
-        class CMemberChar 0xC {
-            int8_t value @ 0x4
+        class CMemberChar 0x18 {
+            int8_t value @ 0x8
         }
 
-        class CMemberUChar 0xC {
-            uint8_t value @ 0x4
+        class CMemberUChar 0x18 {
+            uint8_t value @ 0x8
         }
 
-        class CMemberUShort 0xC {
-            uint16_t value @ 0x4
+        class CMemberUShort 0x18 {
+            uint16_t value @ 0x8
         }
 
-        class CMemberULong 0x10 {
-            uint32_t value @ 0x4
+        class CMemberULong 0x18 {
+            uint32_t value @ 0x8
         }
 
-        class CMemberUInt64 0x18 {
-            uint64_t value @ 0x4
+        class CMemberUInt64 0x20 {
+            uint64_t value @ 0x8
         }
 
-        class CMemberFloat 0x10 {
-            float value @ 0x4
+        class CMemberFloat 0x18 {
+            float value @ 0x8
         }
 
-        CMemberString name @ 0x20
+        CMemberString name @ 0x30
         CMemberString title; //0x0030
         CMemberString engTitle; //0x0040
         CMemberULong type; //0x0050
@@ -112,77 +116,80 @@ class CCharacter {
         CMemberUShort lifeTimeSkill; //0x02B4
         CMemberUInt64 experienceInt; //0x02C0
         CMemberUShort age; //0x02D8
-        CMemberFloat dorcha @ 0xA7C; //0x0A7C
+        CMemberFloat dorcha @ 0x1220; //0x0A7C
         CMemberFloat dorchaMaxBase; //0x0A8C
-        CMemberFloat tuairim; //0x0A9C For Bachram Boost
+        CMemberFloat tuairim; //0x2090 For Bachram Boost
         CMemberFloat tuairimMaxBase; //0x0AAC For Bachram Boost
     }
-
+	//not verified
     class CAction {
         class CAnimatorContext {
             class CFramework {
-                Vector3 position @ 0xA0
+                Vector3 position @ 172
             }
 
-            CFramework* framework @ 0x4
+            CFramework* framework @ 0x8
         }
 
-        CCharacter* character @ 0x40
+        CCharacter* character @ 0x48
         CAnimatorContext* animatorContext
     }
-
+	//not verified
     class CSkillMgr {
         class CActiveSkill {
-            uint16_t skillID @ 0x10
+            uint16_t skillID @ 0x18
             uint8_t charges
             uint8_t state +9
         }
 
-        CActiveSkill* skillInfo @ 0x4
+        CActiveSkill* skillInfo @ 0x8
     }
-
+	//not verified
     class CConditionMgr 0x50 {
-        class CCondition 0x25 {
+        class CCondition 0x28 {
             int32_t statusCount @ 0x4
         }
 
         CCondition* condition @ 0x8
     }
-
+	//not verified
     class CEquipmentItemInfo 0x50 {
-        uint32_t classID @ 0xC
-        uint32_t color1 @ 0x1C
+        uint32_t classID @0x14
+        uint32_t color1 @ 0x24
         uint32_t color2
         uint32_t color3
-        uint32_t color4 @ 0x2c
+        uint32_t color4 +4
         uint32_t color5
         uint32_t color6
     }
-
+	
     class CEquipment {
         CEquipmentItemInfo itemInfo[20]
     }
-
-    uint64_t* entityID @ 0x4
-    CParameter* parameter @ 0xA8
+	uint64_t* vftable;
+    uint64_t* entityID @ 0x8
+    CParameter* parameter @ 0xD8
     CAction* action
     CSkillMgr* skill 
-    CConditionMgr* condition +16
-    CEquipment* equipment @ 0x280
-    uint64_t targetID @ 0x2D8
-    uint64_t mouseTarget +8
+    CConditionMgr* condition +0x20
+    CEquipment* equipment @ 0x488
+    uint64_t targetID @ 0x538//temp
+    uint64_t mouseTarget @0x548
 }
 
+//x64 fixed
 class CItem {
     struct SItemDBDesc {
-        CString* type @ 0x4
-        CString* displayName @ 0x34
-        CString* name @ 0x3C
-        CString* description @ 0x40
-        uint16_t maxStackCount @ 0xcc
+		uint64_t* vftable
+        CString* type
+		CString* str_28 @ 0x28
+        CString* displayName @0x50
+        CString* name +8
+        CString* description 
+        uint16_t maxStackCount @ 0xbc
     }
-
-    uint64_t* entityID @ 0x4
+	uint64_t* vftable
+    uint64_t* entityID
     uint32_t inventoryID; //0x0008
     uint32_t itemID; //0x000C
     uint32_t color1; //0x0010
@@ -194,14 +201,14 @@ class CItem {
     uint32_t stackCount; //0x002C
     uint32_t positionX + 4; //0x0034
     uint32_t positionY; //0x0038
-    uint32_t price +40; //0x0064
+    uint32_t price +48; //0x0064
     uint32_t sellPrice; //0x0068
     uint32_t durability +4; //0x0070
     uint32_t maxDurability; //0x0074
     uint32_t originalDurability; //0x0078
-    SItemDBDesc* dbDesc +92; //0x00D8
-    uint64_t ownerID +28; //0x00F8
-    CString* name +36; //0x0124
+    SItemDBDesc* dbDesc +116; //0x00D8
+    uint64_t ownerID +0x28; //0x00F8
+    CString* name +56; //0x0124
 }
 
 // 0x4a04410
@@ -210,14 +217,15 @@ class CEntityList {
         class CCItemListNode {}
         class CItemListNode {
             class CItemListNodeEntry {
-                CItem* item @ 0x10;     
+                CItem* item @ 0x18; 
+				
             }
 
             CItemListNodeEntry* entry
             CItemListNode* next
         }
-
-        CItemListNode* root @ 0x4
+		float float_0 
+        CItemListNode* root @ 0x8
         uint32_t count
     }
 
@@ -225,25 +233,27 @@ class CEntityList {
         class CCharacterListNode {}
         class CCharacterListNode {
             class CCharacterListNodeEntry {
-                CCharacter* character @ 0x10;     
+			
+                CCharacter* character @ 0x18;     
             }
 
             CCharacterListNodeEntry* entry
             CCharacterListNode* next
         }
-
-        CCharacterListNode* root @ 0x4
+		float float_1
+        CCharacterListNode* root @ 0x8
         uint32_t count
     }
 
-    CItemList items @ 0x8
-    CCharacterList characters @ 0x28
+    CItemList items @ 0x10
+    CCharacterList characters @ 0x50
 }
 
 class CEntityListPtr {
     CEntityList* entityList
 }
 
+//not verified
 class CRenderer {
     class CCamera {
         class CCameraState {
@@ -271,7 +281,7 @@ class CRendererPtr {
 }
 
 class CWorld {
-    uint64_t localPlayerID @ 0xB8
+    uint64_t localPlayerID @ 0x160
 }
 
 class CWorldPtr {

@@ -4,5 +4,5 @@ class CWorld;
 class CWorldPtr {
 public:
     CWorld* world; // 0x0
-}; // Size: 0x4
+}; // Size: 0x8
 #pragma pack(pop)

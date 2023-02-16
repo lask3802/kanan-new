@@ -104,11 +104,11 @@ namespace kanan {
                 addPatchMod(patchMod->getCategory(), move(patchMod));
             }
         }
-
+        /*
         addPatchMod("Quality of Life", make_unique<RangedAttackSwap>());
         addPatchMod("Speedup", make_unique<DontMoveToSquadChat>());
 		addPatchMod("Text", make_unique<TTFFontSize>());
-        addPatchMod("Text", make_unique<ColorAltText>());
+        addPatchMod("Text", make_unique<ColorAltText>());*/
 
         for (auto& categories : m_patchMods) {
             auto& mods = categories.second;
@@ -117,12 +117,13 @@ namespace kanan {
                 return a->getName() < b->getName();
             });
         }
-
+        addMod(make_unique<EntityViewer>());
+        /*
         addMod(make_unique<AutoSetMTU>());
         addMod(make_unique<DisableNagle>());
         addMod(make_unique<BorderlessWindow>());
         addMod(make_unique<EnableMultiClient>());
-        addMod(make_unique<EntityViewer>());
+        
         addMod(make_unique<CookingMod>());
         addMod(make_unique<EquipmentOverride>());
         addMod(make_unique<FieldOfView>());
@@ -131,7 +132,7 @@ namespace kanan {
         addMod(make_unique<AutoChangeChannels>());
         addMod(make_unique<ChangeChannelHotkey>());
         addMod(make_unique<Currtarget>());
-        addMod(make_unique<CharacterWindowTitle>());
+        addMod(make_unique<CharacterWindowTitle>());*/
 
         log("[Mods] Finished loading mods.");
     }

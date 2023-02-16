@@ -5,7 +5,7 @@
     },
     "process": {
         "filter": "client",
-        "id": 301532,
+        "id": 5760,
         "name": "Client.exe"
     },
     "props": {
@@ -101,34 +101,6 @@
                 "parameter": {
                     "parameter": {
                         "__collapsed": false,
-                        "age": {},
-                        "battleState": {},
-                        "combatPower": {},
-                        "cumulatedLevel": {},
-                        "direction": {},
-                        "dorcha": {},
-                        "dorchaMaxBase": {},
-                        "engTitle": {},
-                        "experienceInt": {},
-                        "extra1": {},
-                        "extra2": {},
-                        "extra3": {},
-                        "eyeColor": {},
-                        "eyeType": {},
-                        "food": {},
-                        "foodMinRatio": {},
-                        "level": {},
-                        "life": {},
-                        "lifeDamaged": {},
-                        "lifeMaxBase": {},
-                        "lifeMaxMod": {},
-                        "lifeTimeSkill": {},
-                        "mana": {},
-                        "manaMaxBase": {},
-                        "manaMaxMod": {},
-                        "maxLevel": {},
-                        "motionType": {},
-                        "mouthType": {},
                         "name": {
                             "__collapsed": false,
                             "value": {
@@ -137,29 +109,7 @@
                                     "__collapsed": false
                                 }
                             }
-                        },
-                        "oddEyeLeftColor": {},
-                        "oddEyeRightColor": {},
-                        "positionX": {},
-                        "positionY": {},
-                        "rebirthCount": {},
-                        "regionID": {},
-                        "scaleFatness": {},
-                        "scaleHeight": {},
-                        "scaleLower": {},
-                        "scaleUpper": {},
-                        "skinColor": {},
-                        "stamina": {},
-                        "staminaMaxBase": {},
-                        "staminaMaxMod": {},
-                        "status": {},
-                        "statusEx": {},
-                        "statusEx2": {},
-                        "title": {},
-                        "tuairim": {},
-                        "tuairimMaxBase": {},
-                        "type": {},
-                        "weaponSet": {}
+                        }
                     }
                 },
                 "skill": {
@@ -178,7 +128,25 @@
         "CEntityList": {
             "__collapsed": false,
             "root": {
-                "__collapsed": false
+                "__collapsed": false,
+                "characters": {},
+                "items": {
+                    "root": {
+                        "root": {
+                            "__collapsed": false,
+                            "entry": {
+                                "entry": {
+                                    "__collapsed": false
+                                }
+                            },
+                            "next": {
+                                "next": {
+                                    "__collapsed": false
+                                }
+                            }
+                        }
+                    }
+                }
             }
         },
         "CEntityListPtr": {
@@ -203,14 +171,175 @@
                                                 "__collapsed": false,
                                                 "character": {
                                                     "__collapsed": false,
+                                                    "action": {
+                                                        "action": {
+                                                            "__collapsed": false,
+                                                            "animatorContext": {
+                                                                "__collapsed": false,
+                                                                "animatorContext": {
+                                                                    "__collapsed": false,
+                                                                    "framework": {
+                                                                        "__collapsed": false,
+                                                                        "framework": {
+                                                                            "__collapsed": false,
+                                                                            "position": {
+                                                                                "__collapsed": false
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            },
+                                                            "character": {
+                                                                "character": {
+                                                                    "__collapsed": false,
+                                                                    "entityID": {
+                                                                        "__collapsed": false
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    },
                                                     "condition": {
+                                                        "__collapsed": false,
                                                         "condition": {
-                                                            "__collapsed": false
+                                                            "__collapsed": false,
+                                                            "condition": {
+                                                                "__collapsed": false,
+                                                                "condition": {
+                                                                    "__collapsed": false
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    "equipment": {
+                                                        "__collapsed": false,
+                                                        "equipment": {
+                                                            "__collapsed": false,
+                                                            "itemInfo": {
+                                                                "__collapsed": false,
+                                                                "__count": 1,
+                                                                "itemInfo[0]": {},
+                                                                "itemInfo[1]": {
+                                                                    "__collapsed": false
+                                                                },
+                                                                "itemInfo[2]": {
+                                                                    "__collapsed": false
+                                                                },
+                                                                "itemInfo[3]": {
+                                                                    "__collapsed": false
+                                                                },
+                                                                "itemInfo[4]": {
+                                                                    "__collapsed": false
+                                                                },
+                                                                "itemInfo[5]": {
+                                                                    "__collapsed": false
+                                                                },
+                                                                "itemInfo[6]": {
+                                                                    "__collapsed": false
+                                                                },
+                                                                "itemInfo[7]": {
+                                                                    "__collapsed": false
+                                                                },
+                                                                "itemInfo[8]": {
+                                                                    "__collapsed": false
+                                                                },
+                                                                "itemInfo[9]": {
+                                                                    "__collapsed": false
+                                                                }
+                                                            }
                                                         }
                                                     },
                                                     "parameter": {
                                                         "parameter": {
-                                                            "__collapsed": false
+                                                            "__collapsed": false,
+                                                            "age": {},
+                                                            "battleState": {},
+                                                            "combatPower": {},
+                                                            "cumulatedLevel": {},
+                                                            "direction": {},
+                                                            "dorcha": {},
+                                                            "dorchaMaxBase": {},
+                                                            "engTitle": {},
+                                                            "experienceInt": {},
+                                                            "extra1": {},
+                                                            "extra2": {},
+                                                            "extra3": {},
+                                                            "eyeColor": {
+                                                                "__collapsed": false
+                                                            },
+                                                            "eyeType": {
+                                                                "__collapsed": false
+                                                            },
+                                                            "food": {},
+                                                            "foodMinRatio": {},
+                                                            "level": {},
+                                                            "life": {},
+                                                            "lifeDamaged": {},
+                                                            "lifeMaxBase": {},
+                                                            "lifeMaxMod": {},
+                                                            "lifeTimeSkill": {},
+                                                            "mana": {},
+                                                            "manaMaxBase": {},
+                                                            "manaMaxMod": {},
+                                                            "maxLevel": {},
+                                                            "motionType": {},
+                                                            "mouthType": {
+                                                                "__collapsed": false
+                                                            },
+                                                            "name": {
+                                                                "__collapsed": false,
+                                                                "value": {
+                                                                    "value": {
+                                                                        "__collapsed": false
+                                                                    }
+                                                                }
+                                                            },
+                                                            "oddEyeLeftColor": {},
+                                                            "oddEyeRightColor": {},
+                                                            "positionX": {},
+                                                            "positionY": {},
+                                                            "rebirthCount": {},
+                                                            "regionID": {},
+                                                            "scaleFatness": {},
+                                                            "scaleHeight": {},
+                                                            "scaleLower": {},
+                                                            "scaleUpper": {},
+                                                            "skinColor": {
+                                                                "__collapsed": false
+                                                            },
+                                                            "stamina": {},
+                                                            "staminaMaxBase": {},
+                                                            "staminaMaxMod": {},
+                                                            "status": {
+                                                                "__collapsed": false
+                                                            },
+                                                            "statusEx": {},
+                                                            "statusEx2": {},
+                                                            "title": {
+                                                                "value": {
+                                                                    "__collapsed": false,
+                                                                    "value": {
+                                                                        "__collapsed": false
+                                                                    }
+                                                                }
+                                                            },
+                                                            "tuairim": {},
+                                                            "tuairimMaxBase": {},
+                                                            "type": {
+                                                                "__collapsed": false
+                                                            },
+                                                            "weaponSet": {}
+                                                        }
+                                                    },
+                                                    "skill": {
+                                                        "skill": {
+                                                            "__collapsed": false,
+                                                            "skillInfo": {
+                                                                "__collapsed": false,
+                                                                "skillInfo": {
+                                                                    "__collapsed": false
+                                                                }
+                                                            }
                                                         }
                                                     }
                                                 }
@@ -219,7 +348,189 @@
                                     },
                                     "next": {
                                         "next": {
-                                            "__collapsed": false
+                                            "__collapsed": false,
+                                            "entry": {
+                                                "__collapsed": false,
+                                                "entry": {
+                                                    "__collapsed": false,
+                                                    "character": {
+                                                        "__collapsed": false,
+                                                        "character": {
+                                                            "__collapsed": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "next": {
+                                                "__collapsed": false,
+                                                "next": {
+                                                    "__collapsed": false,
+                                                    "entry": {
+                                                        "__collapsed": false,
+                                                        "entry": {
+                                                            "__collapsed": false,
+                                                            "character": {
+                                                                "__collapsed": false,
+                                                                "character": {
+                                                                    "__collapsed": false,
+                                                                    "skill": {
+                                                                        "skill": {
+                                                                            "__collapsed": false
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    "next": {
+                                                        "__collapsed": false,
+                                                        "next": {
+                                                            "__collapsed": false,
+                                                            "entry": {
+                                                                "__collapsed": false,
+                                                                "entry": {
+                                                                    "__collapsed": false,
+                                                                    "character": {
+                                                                        "__collapsed": false,
+                                                                        "character": {
+                                                                            "__collapsed": false,
+                                                                            "skill": {
+                                                                                "skill": {
+                                                                                    "__collapsed": false
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            },
+                                                            "next": {
+                                                                "__collapsed": false,
+                                                                "next": {
+                                                                    "__collapsed": false,
+                                                                    "entry": {
+                                                                        "__collapsed": false,
+                                                                        "entry": {
+                                                                            "__collapsed": false
+                                                                        }
+                                                                    },
+                                                                    "next": {
+                                                                        "__collapsed": false,
+                                                                        "next": {
+                                                                            "__collapsed": false
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "items": {
+                            "root": {
+                                "__collapsed": false,
+                                "root": {
+                                    "__collapsed": false,
+                                    "entry": {
+                                        "__collapsed": false,
+                                        "entry": {
+                                            "__collapsed": false,
+                                            "item": {
+                                                "__collapsed": false,
+                                                "item": {
+                                                    "__collapsed": false,
+                                                    "dbDesc": {
+                                                        "__collapsed": false,
+                                                        "dbDesc": {
+                                                            "__collapsed": false,
+                                                            "description": {
+                                                                "description": {
+                                                                    "__collapsed": false
+                                                                }
+                                                            },
+                                                            "displayName": {
+                                                                "displayName": {
+                                                                    "__collapsed": false
+                                                                }
+                                                            },
+                                                            "name": {
+                                                                "name": {
+                                                                    "__collapsed": false
+                                                                }
+                                                            },
+                                                            "type": {
+                                                                "type": {
+                                                                    "__collapsed": false
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    "name": {
+                                                        "name": {
+                                                            "__collapsed": false
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "next": {
+                                        "__collapsed": false,
+                                        "next": {
+                                            "__collapsed": false,
+                                            "entry": {
+                                                "entry": {
+                                                    "__collapsed": false,
+                                                    "item": {
+                                                        "item": {
+                                                            "__collapsed": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "next": {
+                                                "__collapsed": false,
+                                                "next": {
+                                                    "__collapsed": false,
+                                                    "entry": {
+                                                        "__collapsed": false,
+                                                        "entry": {
+                                                            "__collapsed": false,
+                                                            "item": {
+                                                                "item": {
+                                                                    "__collapsed": false
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    "next": {
+                                                        "next": {
+                                                            "__collapsed": false,
+                                                            "entry": {
+                                                                "__collapsed": false,
+                                                                "entry": {
+                                                                    "__collapsed": false,
+                                                                    "item": {
+                                                                        "__collapsed": false,
+                                                                        "item": {
+                                                                            "__collapsed": false
+                                                                        }
+                                                                    }
+                                                                }
+                                                            },
+                                                            "next": {
+                                                                "next": {
+                                                                    "__collapsed": false
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
                                         }
                                     }
                                 }
@@ -290,7 +601,8 @@
                                 },
                                 "target": {
                                     "__collapsed": false
-                                }
+                                },
+                                "transformMatrix": {}
                             }
                         }
                     }
@@ -314,12 +626,12 @@
         "addresses": {
             "CAccountPtr": "0x3a4ef3c",
             "CCharacter": "0x88d20eb8",
-            "CEntityList": "0x4a04410",
-            "CEntityListPtr": "0x3ceef74",
+            "CEntityList": "0x000000000531C9B0",
+            "CEntityListPtr": "0x00000001448B0A78",
             "CItem": "0x7cb223c8",
             "CRenderer": "0xa9d0998",
             "CWorldPtr": "0x3c2c080"
         },
-        "chosen": "CCharacter"
+        "chosen": "CEntityListPtr"
     }
 }

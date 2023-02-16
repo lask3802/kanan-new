@@ -13,18 +13,19 @@ public:
         public:
             class CItemListNodeEntry {
             public:
-                char pad_0[0x10];
-                CItem* item; // 0x10
-            }; // Size: 0x14
+                char pad_0[0x18];
+                CItem* item; // 0x18
+            }; // Size: 0x20
 
             CItemListNodeEntry* entry; // 0x0
-            CEntityList::CItemList::CItemListNode* next; // 0x4
-        }; // Size: 0x8
+            CEntityList::CItemList::CItemListNode* next; // 0x8
+        }; // Size: 0x10
 
-        char pad_0[0x4];
-        CItemListNode* root; // 0x4
-        uint32_t count; // 0x8
-    }; // Size: 0xc
+        float float_0; // 0x0
+        char pad_4[0x4];
+        CItemListNode* root; // 0x8
+        uint32_t count; // 0x10
+    }; // Size: 0x14
 
     class CCharacterList {
     public:
@@ -32,22 +33,23 @@ public:
         public:
             class CCharacterListNodeEntry {
             public:
-                char pad_0[0x10];
-                CCharacter* character; // 0x10
-            }; // Size: 0x14
+                char pad_0[0x18];
+                CCharacter* character; // 0x18
+            }; // Size: 0x20
 
             CCharacterListNodeEntry* entry; // 0x0
-            CEntityList::CCharacterList::CCharacterListNode* next; // 0x4
-        }; // Size: 0x8
+            CEntityList::CCharacterList::CCharacterListNode* next; // 0x8
+        }; // Size: 0x10
 
-        char pad_0[0x4];
-        CCharacterListNode* root; // 0x4
-        uint32_t count; // 0x8
-    }; // Size: 0xc
+        float float_1; // 0x0
+        char pad_4[0x4];
+        CCharacterListNode* root; // 0x8
+        uint32_t count; // 0x10
+    }; // Size: 0x14
 
-    char pad_0[0x8];
-    CItemList items; // 0x8
-    char pad_14[0x14];
-    CCharacterList characters; // 0x28
-}; // Size: 0x34
+    char pad_0[0x10];
+    CItemList items; // 0x10
+    char pad_24[0x2c];
+    CCharacterList characters; // 0x50
+}; // Size: 0x64
 #pragma pack(pop)

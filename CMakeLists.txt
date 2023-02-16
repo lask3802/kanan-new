@@ -29,7 +29,7 @@ endif()
 
 project(Kanan)
 
-set(VCPKG_TARGET_TRIPLET x86-windows-static)
+set(VCPKG_TARGET_TRIPLET x64-windows-static)
 
 if(CMKR_ROOT_PROJECT AND NOT CMKR_DISABLE_VCPKG)
 	include(FetchContent)

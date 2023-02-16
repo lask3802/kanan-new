@@ -116,7 +116,7 @@ namespace kanan {
         auto highestIndex = items.count;
         auto node = items.root;
 
-        for (uint32_t i = 0; i <= highestIndex && node != nullptr; ++i, node = node->next) {
+        for (uint32_t i = 0; i < highestIndex && node != nullptr; ++i, node = node->next) {
             auto item = (KItem*)node->entry->item;
 
             if (item == nullptr || !item->getID()) {

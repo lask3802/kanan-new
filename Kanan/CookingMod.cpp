@@ -29,6 +29,8 @@ namespace kanan {
 
 
     //the asm we want to inject
+
+    /* @lask3802: inline asm is no longer available with x64 msvc compiler. 
     void __declspec(naked) HookForCooking()
     {
         __asm
@@ -47,7 +49,7 @@ namespace kanan {
         }
 
     }
-
+    */
 
     //the code i use for injecting stuff
     //patch bytes
@@ -136,7 +138,8 @@ namespace kanan {
         if (m_cooking_is_enabled) {
             log("Cooking applying patch");
             //inject our custom cooking asm
-            Hookcall((void*)addressOfCooking, HookForCooking, 7);
+            //TODO: we should reimplement cookingmod with x64
+            //Hookcall((void*)addressOfCooking, HookForCooking, 7);
 
         }
         else if (!m_cooking_is_enabled) {

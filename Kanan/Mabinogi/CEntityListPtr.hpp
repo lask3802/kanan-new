@@ -4,5 +4,5 @@ class CEntityList;
 class CEntityListPtr {
 public:
     CEntityList* entityList; // 0x0
-}; // Size: 0x4
+}; // Size: 0x8
 #pragma pack(pop)

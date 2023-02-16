@@ -16,22 +16,27 @@ namespace kanan {
         log("Entering Game constructor.");
 
         // Find the games global renderer pointer.
-        auto rendererAddress = scan("client.exe", "8B 0D ? ? ? ? 8D 45 DC 6A ? 6A ? 50");
+        const auto x64renderAddressPattern = "4C 8D 4D 48 4C 8D 45 40 BA ? ? ? ? 48 8B 0D ? ? ? ?"s;
+        auto rendererAddress = scan("client.exe", x64renderAddressPattern);
 
         if (rendererAddress) {
-            m_rendererPtr = *(CRendererPtr**)(*rendererAddress + 2);
+            //address = offset + rip
+            auto offset = *(uint32_t*)(*rendererAddress + 16);
+            auto rip = (*rendererAddress + 20);
+            m_rendererPtr = (CRendererPtr*)(offset + rip);
 
-            log("Got CRendererPtr %p", m_rendererPtr);
+            log("Got CRendererPtr %p, offset %p, rip %p", m_rendererPtr, offset, rip);
         }
         else {
             error("Failed to find address of CRendererPtr.");
         }
 
         // Find the games global entity list pointer.
-        auto entityListAddress = scan("client.exe", "8B 0D ? ? ? ? 56 FF 75 08 E8 ? ? ? ? 85 C0 0F 84 ? ? ? ?");
+        const auto x64EntityListPattern = "48 8B DA 4C 8B F9 48 8B 0D ? ? ? ? E8 ? ? ? ? 48 85 C0"s;
+        auto entityListAddress = scan("client.exe", x64EntityListPattern);
 
-        if (entityListAddress) {
-            m_entityListPtr = *(CEntityListPtr**)(*entityListAddress + 2);
+        if (entityListAddress) {                                                                
+            m_entityListPtr = (CEntityListPtr*)(*(uint32_t*)(*entityListAddress + 9) + (*entityListAddress + 13));
 
             log("Got CEntityListPtr %p", m_entityListPtr);
         }
@@ -40,10 +45,11 @@ namespace kanan {
         }
 
         // Find the games global world pointer.
-        auto worldAddress = scan("client.exe", "A1 ? ? ? ? 8B 48 1C E8 ? ? ? ? 0F B6 C0");
+        const auto x64WorldPattern = "48 8B 05 ? ? ? ? 48 8B 48 38 E8 ? ? ? ?"s;
+        auto worldAddress = scan("client.exe", x64WorldPattern);
 
         if (worldAddress) {
-            m_worldPtr = *(CWorldPtr**)(*worldAddress + 1);
+            m_worldPtr = (CWorldPtr*)(*(uint32_t*)(*worldAddress + 3) + (*worldAddress + 7));
 
             log("Got CWorldPtr %p", m_worldPtr);
         }
@@ -52,10 +58,11 @@ namespace kanan {
         }
 
          // Find the games global account pointer.
-        auto accountAddress = scan("client.exe", "8B 0D ? ? ? ? 6A ? 6A ? 53 E8 ? ? ? ? 8B 06");
+        const auto x64AccountPattern = "48 8B 0D ? ? ? ? 48 8D 97 18 02 00 00 45 33 C9 45 33 C0 E8 ? ? ? ?";
+        auto accountAddress = scan("client.exe", x64AccountPattern);
 
         if (accountAddress) {
-            m_accountPtr = *(CAccountPtr**)(*accountAddress + 2);
+            m_accountPtr = (CAccountPtr*)(*(uint32_t*)(*accountAddress + 3) + (*accountAddress + 7));
 
             log("Got CAccountPtr %p", m_accountPtr);
         }
