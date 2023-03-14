@@ -35,6 +35,8 @@ class CString {
     char16_t buffer[70] @ 0x20 [[utf16*]]
 }
 
+class UnknownPtr 0x200{}
+
 class CCharacter {
     class CParameter {
         class CMemberString 0x20 {
@@ -112,6 +114,24 @@ class CCharacter {
         CMemberUShort lifeTimeSkill;
         CMemberUInt64 experienceInt;
         CMemberUShort age;
+		CMemberFloat strBase;
+		CMemberFloat strMod;
+		CMemberFloat dexBase;
+		CMemberFloat dexMod;
+		CMemberFloat intBase;
+		CMemberFloat intMod;
+		CMemberFloat willBase;
+		CMemberFloat willMod;
+		CMemberFloat luckBase;
+		CMemberFloat luckMod;
+		CMemberFloat lifeMaxByFood;
+		CMemberFloat manaMaxByFood;
+		CMemberFloat staminaMaxByFood;
+		CMemberFloat strMaxByFood;
+		CMemberFloat dexMaxByFood;
+		CMemberFloat intMaxByFood;
+		CMemberFloat willMaxByFood;
+		CMemberFloat luckMaxByFood;
         CMemberFloat dorcha @ 0x1220;
         CMemberFloat dorchaMaxBase; 
         CMemberFloat tuairim; // For Bachram Boost
@@ -162,21 +182,70 @@ class CCharacter {
     class CEquipment {
         CEquipmentItemInfo itemInfo[20] @ 0x6C
     }
+	
+	
+	class CNewEgoWeapon  {
+		class EgoWeaponDetail 0x68{
+			int16_t v0;
+			int16_t v4;
+			int16_t egoId;
+			uint64_t v8 @8;
+			uint64_t entityId ;
+			CString* name;
+			int16_t relation;
+			int16_t level @ 0x2C;
+			int16_t totalEP ;
+			int16_t remainEP ;
+			UnknownPtr* ptr @ 0x38;
+			int16_t missionProgress @0x40;
+			UnknownPtr* ptr2 @ 0x48;
+			uint16_t value50 @ 0x50;
+			uint16_t value58 @ 0x58;
+			uint16_t value5A @ 0x5A;
+			uint16_t value5C @ 0x5C;
+			//int32_t value60;
+			//int32_t value64;
+			
+			//int32_t v60 @ 0x60;
+			uint16_t value60 @ 0x60;
+			uint16_t value62 @ 0x62;
+			uint16_t value64 @ 0x64;
+			
+			
+		}
+		class EgoListPtr {
+			EgoWeaponDetail egoWeapons[6];
+		}
+		uint64_t* vftable
+		CCharacter* character;
+		uint64_t charId;
+		EgoListPtr* egoList;
+		uint64_t* listEnd;
+		uint64_t* capacityEnd;
+		//UnknownPtr* unknownPtr_2;
+		//UnknownPtr* unknownPtr_3;
+		CString* str1 @ 0x350;
+		CString* str2;
+		CString* str3;
+	}
 
     uint64_t* entityID @ 0x8
     CParameter* parameter @ 0xD8
     CAction* action
     CSkillMgr* skill 
     CConditionMgr* condition +32
+	CNewEgoWeapon* newEgoWeapon@ 0x430
     CEquipment* equipment @ 0x488
     uint64_t targetID @ 0x538
     uint64_t mouseTarget +8
 }
 
-class CItem {
+class CItem 0x1d0{
     struct SItemDBDesc {
         CString* type @ 0x8
+		UnknownPtr* ptr30 @ 0x30
         CString* displayName @ 0x38
+		UnknownPtr* ptr40 @ 0x40
         CString* name +16
         CString* description +8
         CString* longDescription 
@@ -195,14 +264,40 @@ class CItem {
     uint32_t stackCount
     uint32_t positionX + 4
     uint32_t positionY
+	UnknownPtr* ptr68 @ 0x68;
+	uint8_t int70
+	uint8_t int71
+	uint16_t int74
+	uint32_t unknown_10000
     uint32_t price + 48
     uint32_t sellPrice
     uint32_t durability +4
     uint32_t maxDurability
     uint32_t originalDurability
+	uint32_t magicCircleDuration @ 0x80
+	uint32_t magicCircleMaxDuration @ 0x84
+	UnknownPtr* ptrd0 @ 0xd0 ;
+	UnknownPtr* ptre0 @ 0xe0 ;
+	UnknownPtr* ptre8 @ 0xe8 ;
+	UnknownPtr* ptrf8 @ 0xf8 ;
     SItemDBDesc* dbDesc @ 0x100
+	UnknownPtr* ptr108;
     uint64_t ownerID @ 0x130
+	UnknownPtr* ptr138 ;
+	UnknownPtr* ptr150 @ 0x150 ;
+	UnknownPtr* ptr168 @ 0x168;
+	
     CString* name @ 0x170
+	CString* str178
+	CString* str180
+	CString* str188
+	UnknownPtr* ptr198 @ 0x198
+	CString* str1b0 @ 0x1b0
+	int32_t value1b4
+	uint16_t value1b8
+	uint16_t value1bc
+	uint16_t value1c0
+	UnknownPtr* ptr1c8@ 0x1c8
 }
 
 class CEntityList 0x100 {
