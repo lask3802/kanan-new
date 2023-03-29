@@ -11,6 +11,11 @@ type char16_t 2
 type float 4 [[f32]]
 type double 8 [[f64]]
 
+struct Vector2 {
+    float x
+    float y    
+}
+
 struct Vector3 {
     float x
     float y
@@ -39,7 +44,7 @@ class CString {
 }
 
 //x64 fixed
-class CCharacter {
+class CCharacter 0x700 {
     class CParameter {
         class CMemberString 0x20 {
             CString* value @ 0x8
@@ -122,10 +127,10 @@ class CCharacter {
         CMemberFloat tuairimMaxBase; //0x0AAC For Bachram Boost
     }
 	//not verified
-    class CAction {
+    class CAction 0x200{
         class CAnimatorContext {
-            class CFramework {
-                Vector3 position @ 172
+            class CFramework 0x180 {
+                Vector3 position @ 0xD0
             }
 
             CFramework* framework @ 0x8
@@ -133,6 +138,10 @@ class CCharacter {
 
         CCharacter* character @ 0x48
         CAnimatorContext* animatorContext
+		uint32_t mapId @ 0xAC
+		class MoveLimiter 0x200{}
+		MoveLimiter* moveLimiter @ 0xE0
+		
     }
 	//not verified
     class CSkillMgr {
@@ -174,7 +183,7 @@ class CCharacter {
     CConditionMgr* condition +0x20
     CEquipment* equipment @ 0x488
     uint64_t targetID @ 0x538//temp
-    uint64_t mouseTarget @0x548
+    uint64_t mouseTarget @ 0x548
 }
 
 //x64 fixed
@@ -293,4 +302,9 @@ class CAccount 0x50 {
 
 class CAccountPtr {
     CAccount* account
+}
+
+class CharacterPosition 0x1000{
+	Vector3 Position;
+	
 }
