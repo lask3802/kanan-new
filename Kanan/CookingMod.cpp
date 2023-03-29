@@ -53,7 +53,7 @@ namespace kanan {
             if (m_is_enabled) {
 
                 ImGui::TextWrapped("Cooking %");
-                ImGui::InputInt3("", (int*)&cookingTemp);
+                ImGui::SliderInt3("", (int*)&cookingTemp, 0, 100);
                 CookingMod::cookingMath(cookingTemp);
             }
         }
